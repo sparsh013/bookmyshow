@@ -4,19 +4,38 @@ const connectDB = require("./dbConnection");
 const Ticket = require("./schema"); 
 const routes = require("./route"); 
 
+require('dotenv').config(); 
+
 const app = express();
-const PORT = 8080;
+const PORT = process.env.PORT || 8080; 
+const CORS_ORIGIN = process.env.CORS_ORIGIN || 'http://localhost:3000';
+
+const connectWithRetry = async () => {
+  try {
+    await connectDB();
+    console.log("Connected to MongoDB");
+  } catch (error) {
+    console.error("MongoDB connection failed, retrying in 5 seconds:", error);
+    setTimeout(connectWithRetry, 5000); 
+  }
+};
+connectWithRetry();
 
 
-connectDB()
-  .then(() => console.log("Connected to MongoDB"))
-  .catch((error) => console.error("MongoDB connection failed:", error));
+app.use(cors({
+  origin: CORS_ORIGIN,
+}));
 
-app.use(cors());
 app.use(express.json());
-app.use(express.urlencoded({ extended: false })); 
+app.use(express.urlencoded({ extended: false }));
 
-app.use("/api", routes); 
+app.use("/api", routes);
+
+
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).send({ message: "An internal server error occurred." });
+});
 
 app.listen(PORT, () => {
   console.log(`App listening on http://localhost:${PORT}`);
