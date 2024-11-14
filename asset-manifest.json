@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/sparsh013/bookmyshow.git/static/css/main.ac15859b.css",
+    "main.js": "/sparsh013/bookmyshow.git/static/js/main.18c38340.js",
+    "index.html": "/sparsh013/bookmyshow.git/index.html",
+    "main.ac15859b.css.map": "/sparsh013/bookmyshow.git/static/css/main.ac15859b.css.map",
+    "main.18c38340.js.map": "/sparsh013/bookmyshow.git/static/js/main.18c38340.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ac15859b.css",
+    "static/js/main.18c38340.js"
+  ]
+}
