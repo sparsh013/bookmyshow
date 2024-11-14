@@ -1,0 +1,49 @@
+/* TimeSchedule.css */
+
+/* Styling for the time slot container */
+.Slot_container {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  /* Styling for the heading */
+  .TS_heading {
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+  
+  /* Main container for the time slots */
+  .TS_main_container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  /* Style for each time slot box (align with movie box) */
+  .time-slot-box {
+    background-color: #1f1b1b; /* Dark background like movie box */
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Hover effect for time slot box */
+  .time-slot-box:hover {
+    background-color: #510c0c; /* Dark red background on hover */
+    transform: scale(1.05);
+  }
+  
+  /* Style for the selected time slot box */
+  .time-slot-box.selected {
+    background-color: #dff872; /* Green color for selected time slot */
+    color: rgb(240, 122, 122); /* Adjusted text color */
+  }
+  
